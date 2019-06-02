@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import {
   MatButtonModule,
   MatCheckboxModule,
+  MatToolbarModule,
   MatSidenavModule,
 } from '@angular/material';
 
@@ -28,6 +29,7 @@ import {
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatToolbarModule,
     MatSidenavModule,
   ],
   providers: [],
