@@ -9,15 +9,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {
   MatButtonModule,
+  MatCardModule,
   MatCheckboxModule,
   MatToolbarModule,
   MatSidenavModule,
 } from '@angular/material';
+import { PhotoComponent } from './components/photo/photo.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import {
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatCardModule,
     MatCheckboxModule,
     MatToolbarModule,
     MatSidenavModule,
