@@ -14,13 +14,15 @@ import {
   MatToolbarModule,
   MatSidenavModule,
 } from '@angular/material';
-import { PhotoComponent } from './components/photo/photo.component';
+import { PhotoComponent } from './photo-grid/photo/photo.component';
+import { PhotoGridComponent } from './photo-grid/photo-grid.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PhotoComponent
+    PhotoComponent,
+    PhotoGridComponent
   ],
   imports: [
     BrowserModule,
