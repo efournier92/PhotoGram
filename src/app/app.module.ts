@@ -8,6 +8,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PhotoComponent } from './components/photo/photo.component';
+import { PhotoGridComponent } from './components/photo-grid/photo-grid.component';
+import { FileInputComponent } from './components/file-input/file-input.component';
 import {
   MatButtonModule,
   MatCardModule,
@@ -15,12 +18,11 @@ import {
   MatToolbarModule,
   MatSidenavModule,
 } from '@angular/material';
-import { PhotoComponent } from './photo-grid/photo/photo.component';
-import { PhotoGridComponent } from './photo-grid/photo-grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FileInputComponent,
     PhotoComponent,
     PhotoGridComponent
   ],

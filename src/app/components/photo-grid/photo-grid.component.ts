@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Photos } from './photo/sample-photos';
-import { Photo } from './photo/photo';
+import { Photos } from '../photo/sample-photos';
+import { Photo } from '../photo/photo';
 
 @Component({
   selector: 'app-photo-grid',
