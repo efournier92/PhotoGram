@@ -1,3 +1,4 @@
+import { keys } from '../keys';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -17,7 +18,6 @@ import {
 import { PhotoComponent } from './photo-grid/photo/photo.component';
 import { PhotoGridComponent } from './photo-grid/photo-grid.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,7 @@ import { PhotoGridComponent } from './photo-grid/photo-grid.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule,
+    AngularFireModule.initializeApp(keys.angularFire),
     AngularFireStorageModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
