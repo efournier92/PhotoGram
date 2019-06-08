@@ -23,6 +23,7 @@ export class FileInputComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('icon', this.matIcon);
     this.fileInput = document.getElementById('file-input-file') as HTMLInput;
     this.inputPlaceholder = this.inputMessage;
   }

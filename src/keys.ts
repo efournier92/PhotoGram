@@ -1,4 +1,4 @@
-export const keys = {
+export const Keys = {
   angularFire: {
     apiKey: "AIzaSyBRM81GkbYLAG_ZHrkXVHMk4EiSso9uVOU",
     databaseURL: "https://photogram-a599b.firebaseio.com/",
