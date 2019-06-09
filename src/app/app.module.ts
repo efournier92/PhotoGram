@@ -1,4 +1,4 @@
-import { Keys } from '../keys';
+import { FireConfig, FireAuthConfig } from '../configs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -6,6 +6,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { FirebaseUIModule } from 'firebaseui-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PhotoComponent } from './components/photo/photo.component';
@@ -19,22 +20,25 @@ import {
   MatSidenavModule,
   MatToolbarModule,
 } from '@angular/material';
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FileInputComponent,
     PhotoComponent,
-    PhotoGridComponent
+    PhotoGridComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(Keys.angularFire),
+    AngularFireModule.initializeApp(FireConfig),
     AngularFireStorageModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
+    FirebaseUIModule.forRoot(FireAuthConfig),
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
