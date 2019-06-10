@@ -8,46 +8,27 @@ interface HTMLInput extends HTMLElement {
 @Component({
   selector: 'app-file-input',
   templateUrl: './file-input.component.html',
-  styleUrls: ['./file-input.component.scss']
+  styleUrls: ['./file-input.component.scss'],
 })
 export class FileInputComponent implements OnInit {
-  @Input()
-  matIcon: string;
+  fileInput: HTMLInput;
   @Input()
   inputMessage: string;
   @Output()
   onInputFileChange: EventEmitter<HTMLInput> = new EventEmitter();
-  fileInput: HTMLInput;
-  inputPlaceholder: string;
 
   constructor() { }
 
-  ngOnInit() {
-    console.log('icon', this.matIcon);
+  ngOnInit(): void {
     this.fileInput = document.getElementById('file-input-file') as HTMLInput;
-    this.inputPlaceholder = this.inputMessage;
   }
 
   openFileSelect(): any {
     this.fileInput.click();
   }
 
-  onInputChange() {
+  onInputChange(): void {
     this.onInputFileChange.emit(this.fileInput.files);
-    if (!this.fileInput)
-      return;
-    this.changeInputText();
-  }
-
-  changeInputText() {
-    const inputString = this.fileInput.value;
-    let i: number;
-    if (inputString.lastIndexOf('\\')) {
-      i = inputString.lastIndexOf('\\') + 1;
-    } else if (inputString.lastIndexOf('/')) {
-      i = inputString.lastIndexOf('/') + 1;
-    }
-    this.inputPlaceholder = inputString.slice(i, inputString.length);
   }
 
   shouldAllowCancel(): boolean {
@@ -56,10 +37,5 @@ export class FileInputComponent implements OnInit {
     } else {
       return false;
     }
-  }
-
-  clearInput() {
-    this.fileInput.value = "";
-    this.inputPlaceholder = this.inputMessage;
   }
 }

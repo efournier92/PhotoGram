@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { ConfirmPromptComponent } from './input-prompt.component';
+import { InputPromptComponent } from './input-prompt.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +11,11 @@ export class ConfirmPromptService {
     public dialog: MatDialog,
   ) { }
 
-  public openDialog(header: string, message: string): MatDialogRef<ConfirmPromptComponent, any> {
-    const dialogRef = this.dialog.open(ConfirmPromptComponent, {
+  public openDialog(message: string): MatDialogRef<InputPromptComponent, any> {
+    const dialogRef = this.dialog.open(InputPromptComponent, {
       width: '250px',
       data: {
-        header: header,
-        message: message,
+        promptMessage: message,
       },
     });
 

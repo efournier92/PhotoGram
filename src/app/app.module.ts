@@ -11,16 +11,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PhotoComponent } from './components/photo/photo.component';
 import { PhotoGridComponent } from './components/photo-grid/photo-grid.component';
+import { InputPromptComponent } from './components/input-prompt/input-prompt.component';
 import { FileInputComponent } from './components/file-input/file-input.component';
 import {
   MatButtonModule,
   MatCardModule,
   MatCheckboxModule,
+  MatDialogModule,
+  MatDividerModule,
   MatIconModule,
+  MatInputModule,
   MatSidenavModule,
   MatToolbarModule,
 } from '@angular/material';
 import { AuthComponent } from './components/auth/auth.component';
+import { PhotoListComponent } from './components/photo-list/photo-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,9 @@ import { AuthComponent } from './components/auth/auth.component';
     FileInputComponent,
     PhotoComponent,
     PhotoGridComponent,
-    AuthComponent
+    AuthComponent,
+    InputPromptComponent,
+    PhotoListComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,9 +49,15 @@ import { AuthComponent } from './components/auth/auth.component';
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
+    MatDialogModule,
+    MatDividerModule,
     MatIconModule,
+    MatInputModule,
     MatSidenavModule,
     MatToolbarModule,
+  ],
+  entryComponents: [
+    InputPromptComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

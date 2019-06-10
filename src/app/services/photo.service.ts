@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { Photo } from '../components/photo/photo';
+import { Photo } from '../models/photo';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { AuthService } from './auth.service';
-import { User } from '../components/auth/user';
+import { User } from '../models/user';
 
 export interface PhotoUpload {
   photo: Photo;

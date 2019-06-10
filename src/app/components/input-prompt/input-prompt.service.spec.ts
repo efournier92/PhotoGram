@@ -1,5 +1,4 @@
 import { TestBed, inject } from '@angular/core/testing';
-
 import { ConfirmPromptService } from './input-prompt.service';
 
 describe('ConfirmPromptService', () => {

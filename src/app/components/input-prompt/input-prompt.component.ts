@@ -1,28 +1,29 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { DialogData } from '../calendar/calendar-dialog/calendar-dialog.component';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
+export interface DialogData {
+  promptMessage: string,
+}
 
 @Component({
-  selector: 'app-confirm-prompt',
-  templateUrl: './confirm-prompt.component.html',
-  styleUrls: ['./confirm-prompt.component.scss']
+  selector: 'app-input-prompt',
+  templateUrl: './input-prompt.component.html',
+  styleUrls: ['./input-prompt.component.scss'],
 })
-export class ConfirmPromptComponent implements OnInit {
+export class InputPromptComponent implements OnInit {
+  photoDescription: string;
+  promptMessage: string;
 
   constructor(
-    public dialogRef: MatDialogRef<ConfirmPromptComponent>,
+    public dialogRef: MatDialogRef<InputPromptComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) { }
 
-  onCancelClick(): void {
-    this.dialogRef.close('');
+  ngOnInit() {
+    this.promptMessage = this.data.promptMessage;
   }
 
-  onActionClick(didUserConfirm) {
+  onActionClick(didUserConfirm: boolean) {
     this.dialogRef.close(didUserConfirm);
   }
-
-  ngOnInit() {
-  }
-
 }

@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { AuthComponent } from './auth.component';
+import { PhotoListComponent } from './photo-list.component';
 
-describe('AuthComponent', () => {
-  let component: AuthComponent;
-  let fixture: ComponentFixture<AuthComponent>;
+describe('PhotoListComponent', () => {
+  let component: PhotoListComponent;
+  let fixture: ComponentFixture<PhotoListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AuthComponent]
+      declarations: [PhotoListComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthComponent);
+    fixture = TestBed.createComponent(PhotoListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

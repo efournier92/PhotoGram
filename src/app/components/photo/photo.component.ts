@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Photo } from './photo';
+import { Photo } from '../../models/photo';
 
 @Component({
   selector: 'app-photo',
@@ -12,7 +12,6 @@ export class PhotoComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

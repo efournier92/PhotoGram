@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConfirmPromptComponent } from './input-prompt.component';
+import { InputPromptComponent } from './input-prompt.component';
 
 describe('ConfirmPromptComponent', () => {
-  let component: ConfirmPromptComponent;
-  let fixture: ComponentFixture<ConfirmPromptComponent>;
+  let component: InputPromptComponent;
+  let fixture: ComponentFixture<InputPromptComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ConfirmPromptComponent]
+      declarations: [InputPromptComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConfirmPromptComponent);
+    fixture = TestBed.createComponent(InputPromptComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,10 +1,10 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav class="sidenav" mode="side" opened>
-    test
+    <app-photo-list [allPhotos]="allPhotos"></app-photo-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="d-flex justify-content-end mt-2">
-      <app-file-input [inputMessage]="" [matIcon]="cloud_upload" (onInputFileChange)="onInputFileChange($event)">
+      <app-file-input [inputMessage]="'Photo Description'" (onInputFileChange)="onInputFileChange($event)">
       </app-file-input>
     </div>
     <div class="row">
