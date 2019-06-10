@@ -4,6 +4,8 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Photo } from '../components/photo/photo';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import { AuthService } from './auth.service';
+import { User } from '../components/auth/user';
 
 export interface PhotoUpload {
   photo: Photo;
@@ -16,11 +18,19 @@ export interface PhotoUpload {
 })
 export class PhotoService {
   allPhotos: AngularFireList<Photo>;
+  user: User;
 
   constructor(
     private storage: AngularFireStorage,
     private db: AngularFireDatabase,
-  ) { }
+    private authService: AuthService,
+  ) {
+    this.authService.userObservable.subscribe(
+      (user: User) => {
+        this.user = user;
+      }
+    )
+  }
 
   private allPhotosSource: BehaviorSubject<Photo[]> = new BehaviorSubject([]);
   allPhotosObservable: Observable<Photo[]> = this.allPhotosSource.asObservable();
@@ -32,6 +42,14 @@ export class PhotoService {
   getAllPhotos(): AngularFireList<Photo> {
     this.allPhotos = this.db.list('photos');
     return this.allPhotos;
+  }
+
+  createPhoto(photoFile: any): void {
+    let photo = new Photo();
+    photo.id = this.db.createPushId();
+    photo.ownerId = "";
+    photo.description = 'Test Photo';
+    this.updatePhoto(photo);
   }
 
   updatePhoto(photo: Photo): void {
@@ -46,10 +64,11 @@ export class PhotoService {
 
   uploadPhoto(file: any, description: string): PhotoUpload {
     let photo: Photo = new Photo();
+    const fileExtension = file.name.split('.').pop();
     photo.id = this.db.createPushId();
     photo.ownerId = "";
     photo.description = description;
-    photo.path = `photos/${photo.id}.jpg`;
+    photo.path = `photos/${photo.id}.${fileExtension}`;
 
     const fileRef: AngularFireStorageReference = this.storage.ref(photo.path);
     const task: AngularFireUploadTask = this.storage.upload(photo.path, file);
@@ -76,6 +95,4 @@ export class PhotoService {
 
     return upload;
   }
-
-
 }

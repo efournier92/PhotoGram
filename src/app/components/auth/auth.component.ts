@@ -25,7 +25,6 @@ export class AuthComponent implements OnInit {
   }
 
   signInSuccess(): void {
-    this.authService.setUser(this.user);
     this.router.navigate(['/']);
   }
 }

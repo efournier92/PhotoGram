@@ -4,7 +4,8 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="d-flex justify-content-end mt-2">
-      <app-file-input [inputMessage]="" [matIcon]="cloud_upload"></app-file-input>
+      <app-file-input [inputMessage]="" [matIcon]="cloud_upload" (onInputFileChange)="onInputFileChange($event)">
+      </app-file-input>
     </div>
     <div class="row">
       <app-photo class="photo-container col-4" *ngFor="let photo of allPhotos" [photo]="photo"></app-photo>
