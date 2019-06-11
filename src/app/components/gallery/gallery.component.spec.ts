@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PhotoGridComponent } from './photo-grid.component';
+import { PhotoGridComponent } from './gallery.component';
 
 describe('PhotoGridComponent', () => {
   let component: PhotoGridComponent;

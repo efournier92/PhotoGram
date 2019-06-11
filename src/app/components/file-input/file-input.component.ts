@@ -23,19 +23,7 @@ export class FileInputComponent implements OnInit {
     this.fileInput = document.getElementById('file-input-file') as HTMLInput;
   }
 
-  openFileSelect(): any {
-    this.fileInput.click();
-  }
-
   onInputChange(): void {
     this.onInputFileChange.emit(this.fileInput.files);
-  }
-
-  shouldAllowCancel(): boolean {
-    if (this.fileInput && this.fileInput.files && this.fileInput.files.length > 0) {
-      return true;
-    } else {
-      return false;
-    }
   }
 }

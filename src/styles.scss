@@ -1,22 +1,26 @@
 @import '~@angular/material/theming';
-@import '~firebaseui/dist/firebaseui.css';
 @import "~bootstrap/dist/css/bootstrap.css";
+@import '~firebaseui/dist/firebaseui.css';
 
 @include mat-core();
 
-$my-theme-primary: mat-palette($mat-blue-grey, 400);
-$my-theme-accent: mat-palette($mat-green, 500);
-$my-theme-warn: mat-palette($mat-green, A400);
+$photogram-theme-primary: mat-palette($mat-indigo, 500);
+$photogram-theme-accent: mat-palette($mat-green, 500);
+$photogram-theme-warn: mat-palette($mat-green, A400);
 
-$my-theme: mat-light-theme(
-  $my-theme-primary,
-  $my-theme-accent,
-  $my-theme-warn,
+$photogram-theme: mat-light-theme(
+  $photogram-theme-primary,
+  $photogram-theme-accent,
+  $photogram-theme-warn,
 );
 
 html, body {
-  @include angular-material-theme($my-theme);
-  margin: 0;
-  height: 100%;
+  @include angular-material-theme($photogram-theme);
+  height: 100vh;
   background-color: #fafafa;
+  margin: 0;
+}
+
+.spacer {
+  flex: 1 1 auto;
 }

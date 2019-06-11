@@ -1,7 +1,7 @@
-<div>
-  <mat-card *ngFor="let photo of photos">
-    <mat-divider></mat-divider>
-    {{ photo.description }}
-  </mat-card>
+<div *ngFor="let photo of allPhotos" class="sidebar-photo-description-container">
   <mat-divider></mat-divider>
+  <div class="d-flex flex-column justify-content-center h-100 ml-3">
+    {{ photo.description }}
+  </div>
 </div>
+<mat-divider></mat-divider>

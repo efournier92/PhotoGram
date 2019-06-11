@@ -10,9 +10,10 @@ import { FirebaseUIModule } from 'firebaseui-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PhotoComponent } from './components/photo/photo.component';
-import { PhotoGridComponent } from './components/photo-grid/photo-grid.component';
+import { PhotoGridComponent } from './components/gallery/gallery.component';
 import { InputPromptComponent } from './components/input-prompt/input-prompt.component';
 import { FileInputComponent } from './components/file-input/file-input.component';
+import { FormsModule } from '@angular/forms';
 import {
   MatButtonModule,
   MatCardModule,
@@ -46,6 +47,7 @@ import { PhotoListComponent } from './components/photo-list/photo-list.component
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
     FirebaseUIModule.forRoot(FireAuthConfig),
+    FormsModule,
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,

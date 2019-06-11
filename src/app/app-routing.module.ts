@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './components/auth/auth.component';
-import { PhotoGridComponent } from './components/photo-grid/photo-grid.component';
+import { PhotoGridComponent } from './components/gallery/gallery.component';
 
 const routes: Routes =
   [

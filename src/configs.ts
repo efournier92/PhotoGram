@@ -10,6 +10,8 @@ export const FireConfig = {
 export const FireAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
   signInOptions: [
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-  ],
+    {
+      provider: firebase.auth.EmailAuthProvider.PROVIDER_ID
+    }
+  ]
 };

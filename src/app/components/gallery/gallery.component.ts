@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Photos } from '../../models/sample-photos';
 import { Photo } from '../../models/photo';
 import { PhotoService } from 'src/app/services/photo.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -7,12 +6,12 @@ import { User } from '../../models/user';
 import { ConfirmPromptService } from '../input-prompt/input-prompt.service';
 
 @Component({
-  selector: 'app-photo-grid',
-  templateUrl: './photo-grid.component.html',
-  styleUrls: ['./photo-grid.component.scss']
+  selector: 'app-gallery',
+  templateUrl: './gallery.component.html',
+  styleUrls: ['./gallery.component.scss']
 })
 export class PhotoGridComponent implements OnInit {
-  allPhotos: Photo[] = Photos;
+  allPhotos: Photo[];
   user: User;
 
   constructor(
@@ -21,8 +20,8 @@ export class PhotoGridComponent implements OnInit {
     private confirmPrompt: ConfirmPromptService,
   ) { }
 
-  ngOnInit() {
-    this.authService.userObservable.subscribe(
+  ngOnInit(): void {
+    this.authService.currentUserObservable.subscribe(
       (user: User) => {
         this.user = user;
       }
@@ -31,15 +30,14 @@ export class PhotoGridComponent implements OnInit {
   }
 
   loadAllPhotos(): void {
-    this.photoService.getAllPhotos().valueChanges().subscribe(
-      (photos: Array<Photo>) => {
+    this.photoService.allPhotosObservable.subscribe(
+      (photos: Photo[]) => {
         this.allPhotos = photos;
-        console.log('photos', this.allPhotos);
       }
     );
   }
 
-  onInputFileChange(files: any) {
+  onInputFileChange(files: any): voidw {
     this.promptForPhotoDescription(files);
   }
 
@@ -48,10 +46,8 @@ export class PhotoGridComponent implements OnInit {
       "",
     );
     dialogRef.afterClosed().subscribe(
-      (confirmedAction: boolean) => {
-        if (confirmedAction) {
-          this.photoService.uploadPhoto(files[0], "");
-        }
+      (photoDescription: string) => {
+        this.photoService.uploadPhoto(files[0], photoDescription);
       }
     )
   }

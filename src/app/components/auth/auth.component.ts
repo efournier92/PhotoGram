@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
 
@@ -12,17 +11,10 @@ export class AuthComponent implements OnInit {
   user: User;
 
   constructor(
-    private authService: AuthService,
     private router: Router,
   ) { }
 
-  ngOnInit(): void {
-    this.authService.userObservable.subscribe(
-      (user: User) => {
-        this.user = user;
-      }
-    );
-  }
+  ngOnInit(): void { }
 
   signInSuccess(): void {
     this.router.navigate(['/']);

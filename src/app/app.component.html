@@ -1,4 +1,6 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="app-topbar" color="primary">
   PhotoGram
+  <div class="spacer"></div>
+  <button mat-button (click)="redirectToAuth()">{{ user && user.email ? user.email : 'Sign In' }}</button>
 </mat-toolbar>
 <router-outlet></router-outlet>

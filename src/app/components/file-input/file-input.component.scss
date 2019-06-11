@@ -1,3 +1,10 @@
+#file-input-text-container {
+  width: 100%;
+  margin-top: -8px;
+  margin-left: 5px;
+  padding: 0;
+}
+
 .file-input-container {
   width: 100%;
   height: 40px;
@@ -5,7 +12,7 @@
 }
 
 .file-input-label {
-  background: #4caf50;
+  background: #FF3D00;
   color: white;
 }
 
@@ -15,13 +22,6 @@
   margin-right: 5px;
 }
 
-#file-input-text-container {
-  width: 100%;
-  margin-top: -8px;
-  margin-left: 5px;
-  padding: 0;
-}
-
-.none {
+.display-none {
   display: none;
 }

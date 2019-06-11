@@ -23,7 +23,7 @@ export class InputPromptComponent implements OnInit {
     this.promptMessage = this.data.promptMessage;
   }
 
-  onActionClick(didUserConfirm: boolean) {
-    this.dialogRef.close(didUserConfirm);
+  onConfirm(photoDescription: string) {
+    this.dialogRef.close(photoDescription);
   }
 }
