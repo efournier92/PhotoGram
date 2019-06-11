@@ -19,11 +19,11 @@ export class InputPromptComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.promptMessage = this.data.promptMessage;
   }
 
-  onConfirm(photoDescription: string) {
+  onConfirm(photoDescription: string): void {
     this.dialogRef.close(photoDescription);
   }
 }

@@ -3,21 +3,21 @@ import { Photo } from '../../models/photo';
 import { PhotoService } from 'src/app/services/photo.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from '../../models/user';
-import { ConfirmPromptService } from '../input-prompt/input-prompt.service';
+import { InputPromptService } from '../input-prompt/input-prompt.service';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })
-export class PhotoGridComponent implements OnInit {
+export class GalleryComponent implements OnInit {
   allPhotos: Photo[];
   user: User;
 
   constructor(
     private photoService: PhotoService,
     private authService: AuthService,
-    private confirmPrompt: ConfirmPromptService,
+    private inputPrompt: InputPromptService,
   ) { }
 
   ngOnInit(): void {
@@ -37,14 +37,12 @@ export class PhotoGridComponent implements OnInit {
     );
   }
 
-  onInputFileChange(files: any): voidw {
+  onInputFileChange(files: any): void {
     this.promptForPhotoDescription(files);
   }
 
   promptForPhotoDescription(files: any): void {
-    const dialogRef = this.confirmPrompt.openDialog(
-      "",
-    );
+    const dialogRef = this.inputPrompt.openDialog();
     dialogRef.afterClosed().subscribe(
       (photoDescription: string) => {
         this.photoService.uploadPhoto(files[0], photoDescription);

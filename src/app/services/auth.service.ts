@@ -36,7 +36,7 @@ export class AuthService {
     )
   }
 
-  setUser(user: User, authData?: any) {
+  setUser(user: User, authData?: any): void {
     if (!user) {
       this.createUser(authData);
     } else {
@@ -45,7 +45,7 @@ export class AuthService {
     this.updateCurrentUser(this.currentUser);
   }
 
-  createUser(authData: any) {
+  createUser(authData: any): void {
     let user: User = new User(authData);
     this.updateCurrentUser(user);
   }

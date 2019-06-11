@@ -10,7 +10,7 @@ import { FirebaseUIModule } from 'firebaseui-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PhotoComponent } from './components/photo/photo.component';
-import { PhotoGridComponent } from './components/gallery/gallery.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 import { InputPromptComponent } from './components/input-prompt/input-prompt.component';
 import { FileInputComponent } from './components/file-input/file-input.component';
 import { FormsModule } from '@angular/forms';
@@ -26,17 +26,17 @@ import {
   MatToolbarModule,
 } from '@angular/material';
 import { AuthComponent } from './components/auth/auth.component';
-import { PhotoListComponent } from './components/photo-list/photo-list.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FileInputComponent,
     PhotoComponent,
-    PhotoGridComponent,
+    GalleryComponent,
     AuthComponent,
     InputPromptComponent,
-    PhotoListComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,

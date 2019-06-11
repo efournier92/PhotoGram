@@ -1,14 +1,14 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { ConfirmPromptService } from './input-prompt.service';
+import { InputPromptService } from './input-prompt.service';
 
 describe('ConfirmPromptService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ConfirmPromptService]
+      providers: [InputPromptService]
     });
   });
 
-  it('should be created', inject([ConfirmPromptService], (service: ConfirmPromptService) => {
+  it('should be created', inject([InputPromptService], (service: InputPromptService) => {
     expect(service).toBeTruthy();
   }));
 });

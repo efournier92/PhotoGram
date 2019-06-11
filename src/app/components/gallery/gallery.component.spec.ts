@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PhotoGridComponent } from './gallery.component';
+import { GalleryComponent } from './gallery.component';
 
 describe('PhotoGridComponent', () => {
-  let component: PhotoGridComponent;
-  let fixture: ComponentFixture<PhotoGridComponent>;
+  let component: GalleryComponent;
+  let fixture: ComponentFixture<GalleryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PhotoGridComponent ]
+      declarations: [GalleryComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PhotoGridComponent);
+    fixture = TestBed.createComponent(GalleryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

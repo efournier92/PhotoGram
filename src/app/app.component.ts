@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     );
   }
 
-  redirectToAuth() {
+  redirectToAuth(): void {
     this.router.navigate(['/auth']);
   }
 }

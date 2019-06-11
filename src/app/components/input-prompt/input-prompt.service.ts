@@ -5,18 +5,15 @@ import { InputPromptComponent } from './input-prompt.component';
 @Injectable({
   providedIn: 'root'
 })
-export class ConfirmPromptService {
+export class InputPromptService {
 
   constructor(
     public dialog: MatDialog,
   ) { }
 
-  public openDialog(message: string): MatDialogRef<InputPromptComponent, any> {
+  public openDialog(): MatDialogRef<InputPromptComponent, any> {
     const dialogRef = this.dialog.open(InputPromptComponent, {
       width: '250px',
-      data: {
-        promptMessage: message,
-      },
     });
 
     return dialogRef;
