@@ -11,8 +11,8 @@ import { InputPromptService } from '../input-prompt/input-prompt.service';
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent implements OnInit {
-  allPhotos: Photo[];
   user: User;
+  allPhotos: Photo[];
 
   constructor(
     private photoService: PhotoService,
@@ -22,10 +22,8 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.currentUserObservable.subscribe(
-      (user: User) => {
-        this.user = user;
-      }
-    );
+      (user: User) => this.user = user
+    )
     this.loadAllPhotos();
   }
 

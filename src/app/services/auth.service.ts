@@ -22,6 +22,7 @@ export class AuthService {
 
   private currentUserSource = new BehaviorSubject({});
   currentUserObservable = this.currentUserSource.asObservable();
+
   updateCurrentUser(user: User): void {
     this.currentUserSource.next(user);
   }
@@ -47,6 +48,7 @@ export class AuthService {
 
   createUser(authData: any): void {
     let user: User = new User(authData);
+    this.userObj.update(user)
     this.updateCurrentUser(user);
   }
 }

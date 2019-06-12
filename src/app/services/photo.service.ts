@@ -24,7 +24,7 @@ export class PhotoService {
     private storage: AngularFireStorage,
     private db: AngularFireDatabase,
   ) {
-    this.updateAllPhotos(SamplePhotos);
+    // this.updateAllPhotos(SamplePhotos);
     this.loadAllPhotos();
   }
 
