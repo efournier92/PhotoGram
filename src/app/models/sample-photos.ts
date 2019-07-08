@@ -1,7 +1,7 @@
 import { Photo } from "./photo"
 
 export const SamplePhotos: Photo[] = [
-  new Photo("", "The Probably-Haunted House", "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80"),
+  new Photo("", "Probably-Haunted House", "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80"),
   new Photo("", "CAT", "https://d17fnq9dkz9hgj.cloudfront.net/uploads/2012/11/101438745-cat-conjunctivitis-causes.jpg"),
   new Photo("", "Unlikely a good pet", "https://cdn.pixabay.com/photo/2014/10/01/10/44/hedgehog-468228__340.jpg"),
   new Photo("", "WTF", "https://i.ytimg.com/vi/-DDCfYrgZSw/hqdefault.jpg"),

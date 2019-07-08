@@ -24,8 +24,8 @@ export class PhotoService {
     private storage: AngularFireStorage,
     private db: AngularFireDatabase,
   ) {
-    // this.updateAllPhotos(SamplePhotos);
-    this.loadAllPhotos();
+    this.updateAllPhotos(SamplePhotos);
+    // this.loadAllPhotos();
   }
 
   private allPhotosSource: BehaviorSubject<Photo[]> = new BehaviorSubject([]);

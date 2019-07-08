@@ -21,9 +21,6 @@ export class GalleryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.authService.currentUserObservable.subscribe(
-      (user: User) => this.user = user
-    )
     this.loadAllPhotos();
   }
 

@@ -15,40 +15,33 @@ export class AuthService {
     private db: AngularFireDatabase,
     private angularFireAuth: AngularFireAuth,
   ) {
-    this.angularFireAuth.authState.subscribe(
-      authData => this.getUserById(authData)
-    )
+    // this.angularFireAuth.authState.subscribe(
+    //   authData => this.getUserById(authData)
+    // )
   }
 
-  private currentUserSource = new BehaviorSubject({});
-  currentUserObservable = this.currentUserSource.asObservable();
+  // getUserById(authData: any): AngularFireObject<User> {
+  //   if (!authData || !authData.uid) return;
+  //   this.userObj = this.db.object(`users/${authData.uid}`);
+  //   this.userObj.valueChanges().subscribe(
+  //     (user: User) => {
+  //       this.setUser(user, authData);
+  //     }
+  //   )
+  // }
 
-  updateCurrentUser(user: User): void {
-    this.currentUserSource.next(user);
-  }
+  // setUser(user: User, authData?: any): void {
+  //   if (!user) {
+  //     this.createUser(authData);
+  //   } else {
+  //     this.currentUser = user;
+  //   }
+  //   this.updateCurrentUser(this.currentUser);
+  // }
 
-  getUserById(authData: any): AngularFireObject<User> {
-    if (!authData || !authData.uid) return;
-    this.userObj = this.db.object(`users/${authData.uid}`);
-    this.userObj.valueChanges().subscribe(
-      (user: User) => {
-        this.setUser(user, authData);
-      }
-    )
-  }
-
-  setUser(user: User, authData?: any): void {
-    if (!user) {
-      this.createUser(authData);
-    } else {
-      this.currentUser = user;
-    }
-    this.updateCurrentUser(this.currentUser);
-  }
-
-  createUser(authData: any): void {
-    let user: User = new User(authData);
-    this.userObj.update(user)
-    this.updateCurrentUser(user);
-  }
+  // createUser(authData: any): void {
+  //   let user: User = new User(authData);
+  //   this.userObj.update(user)
+  //   this.updateCurrentUser(user);
+  // }
 }
