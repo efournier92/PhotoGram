@@ -5,7 +5,6 @@ import { Photo } from '../models/photo';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { User } from '../models/user';
-import { SamplePhotos } from '../models/sample-photos';
 
 export interface PhotoUpload {
   photo: Photo;
@@ -24,26 +23,19 @@ export class PhotoService {
     private storage: AngularFireStorage,
     private db: AngularFireDatabase,
   ) {
-    this.updateAllPhotos(SamplePhotos);
     // this.loadAllPhotos();
   }
 
-  private allPhotosSource: BehaviorSubject<Photo[]> = new BehaviorSubject([]);
-  allPhotosObservable: Observable<Photo[]> = this.allPhotosSource.asObservable();
-  updateAllPhotos(photos: Photo[]): void {
-    this.allPhotosSource.next(photos);
-  }
-
-  loadAllPhotos(): AngularFireList<Photo> {
-    this.allPhotos = this.db.list('photos');
-    this.allPhotos.valueChanges().subscribe(
-      (photos: Photo[]) => {
-        if (photos.length > 0)
-          this.updateAllPhotos(photos);
-      }
-    )
-    return this.allPhotos;
-  }
+  // loadAllPhotos(): AngularFireList<Photo> {
+  //   this.allPhotos = this.db.list('photos');
+  //   this.allPhotos.valueChanges().subscribe(
+  //     (photos: Photo[]) => {
+  //       if (photos.length > 0)
+  //         this.updateAllPhotos(photos);
+  //     }
+  //   )
+  //   return this.allPhotos;
+  // }
 
   uploadPhoto(file: any, description: string): PhotoUpload {
     let photo: Photo = new Photo();

@@ -9,8 +9,7 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent implements OnInit {
-  @Input()
-  allPhotos: Photo[];
+  allPhotos: Photo[] = new Array<Photo>();
   user: User;
 
   constructor(
@@ -18,8 +17,6 @@ export class SidenavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.photoService.allPhotosObservable.subscribe(
-      (photos: Photo[]) => this.allPhotos = photos
-    )
+
   }
 }

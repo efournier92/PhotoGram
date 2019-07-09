@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Photo } from '../../models/photo';
 import { PhotoService } from 'src/app/services/photo.service';
-import { AuthService } from 'src/app/services/auth.service';
 import { User } from '../../models/user';
 import { InputPromptService } from '../input-prompt/input-prompt.service';
+import { SamplePhotos } from 'src/app/models/sample-photos';
 
 @Component({
   selector: 'app-gallery',
@@ -12,24 +12,15 @@ import { InputPromptService } from '../input-prompt/input-prompt.service';
 })
 export class GalleryComponent implements OnInit {
   user: User;
-  allPhotos: Photo[];
+  allPhotos: Photo[] = SamplePhotos;
 
   constructor(
     private photoService: PhotoService,
-    private authService: AuthService,
     private inputPrompt: InputPromptService,
   ) { }
 
   ngOnInit(): void {
-    this.loadAllPhotos();
-  }
 
-  loadAllPhotos(): void {
-    this.photoService.allPhotosObservable.subscribe(
-      (photos: Photo[]) => {
-        this.allPhotos = photos;
-      }
-    );
   }
 
   onInputFileChange(files: any): void {

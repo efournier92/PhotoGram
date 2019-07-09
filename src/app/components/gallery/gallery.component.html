@@ -1,13 +1,13 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav class="app-sidenav" mode="side" color="primary" opened>
-    <app-sidenav [allPhotos]="allPhotos"></app-sidenav>
+    <app-sidenav></app-sidenav>
   </mat-sidenav>
   <mat-sidenav-content class="app-sidenav-content">
     <div class="d-flex justify-content-end mt-2">
-      <app-file-input [inputMessage]="'Photo Description'" (onInputFileChange)="onInputFileChange($event)">
+      <app-file-input (onInputFileChange)="onInputFileChange($event)">
       </app-file-input>
     </div>
-    <div class="row ml-3">
+    <div class="row ml-3" *ngIf="allPhotos.length > 0">
       <app-photo class="photo-container col-md-3 mb-4" *ngFor="let photo of allPhotos" [photo]="photo"></app-photo>
     </div>
   </mat-sidenav-content>

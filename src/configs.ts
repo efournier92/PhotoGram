@@ -8,6 +8,5 @@ export const FireConfig = {
 };
 
 export const FireAuthConfig: firebaseui.auth.Config = {
-  signInFlow: 'popup',
-  signInOptions: [],
+
 };

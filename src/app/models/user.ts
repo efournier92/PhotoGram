@@ -1,7 +1,6 @@
 export interface AuthRoles {
   user: boolean;
   admin?: boolean;
-  super?: boolean;
 }
 
 export class User {

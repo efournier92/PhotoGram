@@ -1,7 +1,9 @@
-<div *ngFor="let photo of allPhotos" class="sidebar-photo-description-container">
-  <mat-divider></mat-divider>
-  <div class="d-flex flex-column justify-content-center h-100 ml-3">
-    {{ photo.description }}
+<div *ngIf="allPhotos.length > 0">
+  <div *ngFor="let photo of allPhotos" class="sidebar-photo-description-container">
+    <mat-divider></mat-divider>
+    <div class="d-flex flex-column justify-content-center h-100 ml-3">
+      {{ photo.description }}
+    </div>
   </div>
+  <mat-divider></mat-divider>
 </div>
-<mat-divider></mat-divider>
