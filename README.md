@@ -11,17 +11,16 @@
 - [License](#license)
 
 ## Overview
-A small demo application that displays a feed of photos. Photo content is fed from static data in this repo, but can be fed dynamically 
-via [Firebase](https://firebase.google.com/) with the steps outlined in [Firebase Integration](#firebase-integration). This app was built to accompany a presentation on [Firebase](https://firebase.google.com/), to demonstrate how simple integrations with this platform can be.
+A small demo application to display a feed of photos. Photo content is fed from static data when you clone this repo, but can be fed dynamically via [Firebase](https://firebase.google.com/) with the steps outlined in the [Firebase Integration](#firebase-integration) section. This app was built to accompany a presentation on [Firebase](https://firebase.google.com/), to demonstrate how simple integrating with this platform can be.
 
 ## Stack
 - [Angular](https://angular.io/)
 - [Angular Material](https://material.angular.io/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Firebase Realtime Database](https://firebase.google.com/products/realtime-database/)
-- [Firebase Hosting](https://firebase.google.com/products/hosting/)
-- [Firebase Storage](https://firebase.google.com/products/storage)
 - [Firebase Authentication](https://firebase.google.com/products/auth/)
+- [Firebase Realtime Database](https://firebase.google.com/products/realtime-database/)
+- [Firebase Storage](https://firebase.google.com/products/storage)
+- [Firebase Hosting](https://firebase.google.com/products/hosting/)
 - [SCSS](https://sass-lang.com)
 - [Bootstrap](https://getbootstrap.com/)
 - [RxJS](http://reactivex.io/)
@@ -53,7 +52,7 @@ ng test
 
 ## Firebase Integration
 
-### Use the following steps to add Firebase functionality
+### _Follow these steps to add Firebase functionality_
 
 #### 1. In `configs.ts`, replace `API_KEY` and `PROJECT_ID` with values from your Firebase dashboard
 ```typescript
@@ -66,6 +65,7 @@ export const FireConfig = {
 ```
 
 #### 2. In `configs.ts`, update `FireAuthConfig` with your preferred provider configuration
+_Here's the default configuration, with all providers enabled_
 ```typescript
 export const FireAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -131,13 +131,37 @@ this.photoService.allPhotosObservable.subscribe(
 )
 ```
 
-#### 8. Deploy the application
+#### 8. From your Firebase dashboard, configure the following database rules
+```javascript
+{
+  "rules": {
+    "users": {
+       "$uid": {
+         ".read": "$uid === auth.uid",
+         ".write": "$uid === auth.uid"
+       }
+    },
+    "photos": { 
+      ".read": "auth !== null",
+     	".write": "root.child('users').child(auth.uid).child('roles/admin').val() === true",
+    }
+  }
+}
+```
+
+#### 9. Deploy your application
+
+##### Initialize Firebase for the project
 ```bash
 firebase init
 ```
+
+##### Run a production build
 ```bash
 ng build --prod
 ```
+
+##### Deploy to Firebase
 ```bash
 firebase deploy
 ```
@@ -147,3 +171,4 @@ If you have feature suggestions, please contact me here or at efournier92@gmail.
 
 ## License
 This project is provided under the [`MIT`](https://opensource.org/licenses/MIT) licence and I hereby grant rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software without limitation, provided the resulting software also carries the same open-source licensing statement.
+
