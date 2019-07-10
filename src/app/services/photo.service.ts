@@ -39,10 +39,10 @@ export class PhotoService {
 
   uploadPhoto(file: any, description: string): PhotoUpload {
     let photo: Photo = new Photo();
-    const fileExtension = file.name.split('.').pop();
-    const photoPath = `photos/${photo.id}.${fileExtension}`;
     photo.id = this.db.createPushId();
     photo.description = description;
+    const fileExtension = file.name.split('.').pop();
+    const photoPath = `photos/${photo.id}.${fileExtension}`;
     const fileRef: AngularFireStorageReference = this.storage.ref(photoPath);
     const task: AngularFireUploadTask = this.storage.upload(photoPath, file);
     task.snapshotChanges().pipe(
