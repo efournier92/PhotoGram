@@ -11,19 +11,19 @@
 - [License](#license)
 
 ## Overview
-A small demo application to display a feed of photos. Photo content is fed from static data when you clone this repo, but can be fed dynamically via [Firebase](https://firebase.google.com/) with the steps outlined in the [Firebase Integration](#firebase-integration) section. This app was built to accompany a presentation on [Firebase](https://firebase.google.com/), to demonstrate how simple integrating with this platform can be.
+A small demo application to display a feed of photos. Photo content is fed from static data when you clone this repo, but can be fed dynamically via [Firebase](https://firebase.google.com/) with the steps outlined in the [Firebase Integration](#firebase-integration) section. This app was built to accompany a presentation on [Firebase](https://firebase.google.com/), to demonstrate how simple integrating with this platform can be. The primary goal is to practice using four of [Firebase's](https://firebase.google.com/) core 
 
 ## Stack
-- [Angular](https://angular.io/)
-- [Angular Material](https://material.angular.io/)
-- [TypeScript](https://www.typescriptlang.org/)
 - [Firebase Authentication](https://firebase.google.com/products/auth/)
 - [Firebase Realtime Database](https://firebase.google.com/products/realtime-database/)
 - [Firebase Storage](https://firebase.google.com/products/storage)
 - [Firebase Hosting](https://firebase.google.com/products/hosting/)
-- [SCSS](https://sass-lang.com)
-- [Bootstrap](https://getbootstrap.com/)
+- [Angular](https://angular.io/)
 - [RxJS](http://reactivex.io/)
+- [Angular Material](https://material.angular.io/)
+- [Bootstrap](https://getbootstrap.com/)
+- [SCSS](https://sass-lang.com)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## Build
 
@@ -33,19 +33,16 @@ npm install
 ```
 
 ### Local
-
 ```bash
 ng serve
 ```
 
 ### Production
-
 ```bash
 ng build --prod
 ```
 
 ## Test
-
 ```bash
 ng test
 ```
@@ -54,7 +51,7 @@ ng test
 
 ### _Follow these steps to add Firebase functionality_
 
-#### 1. In `configs.ts`, replace `API_KEY` and `PROJECT_ID` with values from your Firebase dashboard
+#### 1. In `configs.ts`, replace `API_KEY` and `PROJECT_ID` with values from your [Firebase Console](https://console.firebase.google.com)
 ```typescript
 export const FireConfig = {
   apiKey: "API_KEY",
@@ -131,7 +128,7 @@ this.photoService.allPhotosObservable.subscribe(
 )
 ```
 
-#### 8. From your Firebase dashboard, configure the following database rules
+#### 8. From your [Firebase Console](https://console.firebase.google.com), configure the following database rules
 ```javascript
 {
   "rules": {
@@ -151,17 +148,21 @@ this.photoService.allPhotosObservable.subscribe(
 
 #### 9. Deploy your application
 
-##### Initialize Firebase for the project
+##### Initialize Firebase from the project's root directory
 ```bash
 firebase init
 ```
+1. Select `Hosting: Configure and deploy Firebase Hosting sites`
+2. Select your Firebase project
+3. Input `dist/PhotoGram` as your public directory
+4. Decline to configure as a single-page app
 
 ##### Run a production build
 ```bash
 ng build --prod
 ```
 
-##### Deploy to Firebase
+##### Deploy build output to Firebase
 ```bash
 firebase deploy
 ```
