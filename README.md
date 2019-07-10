@@ -2,7 +2,6 @@
 
 ## Contents
 - [Overview](#overview)
-- [Development Philosophy](#development-philosophy)
 - [Stack](#stack)
 - [Build](#build)
 - [Test](#test)
@@ -11,7 +10,7 @@
 - [License](#license)
 
 ## Overview
-A small demo application to display a feed of photos. Photo content is fed from static data when you clone this repo, but can be fed dynamically via [Firebase](https://firebase.google.com/) with the steps outlined in the [Firebase Integration](#firebase-integration) section. This app was built to accompany a presentation on [Firebase](https://firebase.google.com/), to demonstrate how simple integrating with this platform can be. The primary goal is to practice using four of [Firebase's](https://firebase.google.com/) core 
+A small demo application to display a feed of photos. Photo content is fed from static data when you clone this repo, but can be fed dynamically via [Firebase](https://firebase.google.com/) with the steps outlined in the [Firebase Integration](#firebase-integration) section. The primary objective is to use this repo to practice working with four of [Firebase's](https://firebase.google.com/) core services: [Authentication](https://firebase.google.com/products/auth/), [Realtime Database](https://firebase.google.com/products/realtime-database/), [Storage](https://firebase.google.com/products/storage), and [Hosting](https://firebase.google.com/products/hosting/). This app was built to accompany a presentation on [Firebase](https://firebase.google.com/), to demonstrate how simple integrating with this platform can be.
 
 ## Stack
 - [Firebase Authentication](https://firebase.google.com/products/auth/)
@@ -95,7 +94,7 @@ export const FireAuthConfig: firebaseui.auth.Config = {
 };
 ```
 
-#### 3. In `app.component.ts`, add the following subscribe statement to `ngOnInit()`
+#### 3. In `app.component.ts`, add the following subscription to `ngOnInit()`
 ```typescript
 this.authService.currentUserObeservable.subscribe(
   (user: User) => this.user = user
@@ -107,21 +106,21 @@ this.authService.currentUserObeservable.subscribe(
 private allPhotosSubject = new BehaviorSubject({});
 public readonly allPhotosObservable = this.allPhotosSubject.asObservable();
 
-updateAllPhoto(photos: Photo[]) {
+private updateAllPhoto(photos: Photo[]) {
   this.allPhotosSubject.next(photos);
 }
 ```
 
 #### 5. In `photos.service.ts`, uncomment all commented lines
 
-#### 6. In `photos.component.ts`, add the following subscribe statement to `ngOnInit()`
+#### 6. In `photos.component.ts`, add the following subscription to `ngOnInit()`
 ```typescript
 this.photoService.allPhotosObservable.subscribe(
   (photos: Photo[]) => this.allPhotos = photos,
 )
 ```
 
-#### 7. In `sidenav.component.ts`, add the following subscribe statement to `ngOnInit()`
+#### 7. In `sidenav.component.ts`, add the following subscription to `ngOnInit()`
 ```typescript
 this.photoService.allPhotosObservable.subscribe(
   (photos: Photo[]) => this.allPhotos = photos,
@@ -172,4 +171,3 @@ If you have feature suggestions, please contact me here or at efournier92@gmail.
 
 ## License
 This project is provided under the [`MIT`](https://opensource.org/licenses/MIT) licence and I hereby grant rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software without limitation, provided the resulting software also carries the same open-source licensing statement.
-
