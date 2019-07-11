@@ -8,7 +8,8 @@
       </app-file-input>
     </div>
     <div class="row ml-3" *ngIf="allPhotos.length > 0">
-      <app-photo class="photo-container col-md-3 mb-4" *ngFor="let photo of allPhotos" [photo]="photo"></app-photo>
+      <app-photo class="photo-container col-md-4 col-lg-3 mb-4" *ngFor="let photo of allPhotos" [photo]="photo">
+      </app-photo>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

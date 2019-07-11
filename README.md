@@ -147,6 +147,11 @@ this.photoService.allPhotosObservable.subscribe(
 
 #### 9. Deploy your application
 
+##### Run a production build
+```bash
+ng build --prod
+```
+
 ##### Initialize Firebase from the project's root directory
 ```bash
 firebase init
@@ -154,12 +159,8 @@ firebase init
 1. Select `Hosting: Configure and deploy Firebase Hosting sites`
 2. Select your Firebase project
 3. Input `dist/PhotoGram` as your public directory
-4. Decline to configure as a single-page app
-
-##### Run a production build
-```bash
-ng build --prod
-```
+4. Accept to configure as a single-page app
+5. Decline to overwrite `index.html`
 
 ##### Deploy build output to Firebase
 ```bash
