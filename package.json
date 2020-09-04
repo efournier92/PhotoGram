@@ -28,7 +28,7 @@
     "firebase": "^6.2.4",
     "firebaseui": "^4.0.0",
     "firebaseui-angular": "^3.4.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "rxjs": "6.5.2",
     "zone.js": "^0.9.1"
   },
